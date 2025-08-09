@@ -13,7 +13,7 @@ class BaseTemplateView(TemplateView):
 class TarefaCriarView(CreateView):
     template_name = 'tasks/form_add.html'
     form_class = TaskModelForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('tasks:home')
 
     def form_valid(self, form):
         return super().form_valid(form)
