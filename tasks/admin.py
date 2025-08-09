@@ -8,5 +8,5 @@ from .models import Task
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', 'descricao', 'status')
     list_display_links = ('id', 'titulo')
-    search_fields = ('title', )
+    search_fields = ('titulo', )
 
