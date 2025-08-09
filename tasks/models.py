@@ -27,7 +27,7 @@ class Task(Base):
         blank=True, 
         null=True
         )
-    status = models.BooleanField(
+    status = models.CharField(
         verbose_name='Status',
         choices=Status.choices,
         default=Status.PENDENTE,
