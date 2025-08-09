@@ -11,7 +11,7 @@ class BaseTemplateView(TemplateView):
 
 
 class TarefaCriarView(CreateView):
-    template_name = 'tasks/form_add.py'
+    template_name = 'tasks/form_add.html'
     form_class = TaskModelForm
     success_url = reverse_lazy('home')
 
