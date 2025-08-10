@@ -1,6 +1,6 @@
 
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, ListView, UpdateView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 from .forms import TaskModelForm
 
 from .models import Task
@@ -40,4 +40,11 @@ class TarefaAtualizarView(UpdateView):
     
     def form_invalid(self, form):
         return super().form_invalid(form)
+
+
+class TarefaDeletarView(DeleteView):
+    template_name = 'tasks/form_delete.html'
+    model = Task
+    context_object_name = 'task'
+    success_url = reverse_lazy('tasks:listar')
 
