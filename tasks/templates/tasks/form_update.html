@@ -7,7 +7,10 @@
     <form method="POST" action="{% url 'tasks:atualizar' task.pk %}">
         {% csrf_token %}
         {% for field in form %}
-            {{ field }}
+            <div>
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
         {% endfor %}
         <button type="submit">Atualizar</button>
         <a href="{% url 'tasks:listar' %}"><button type="button">Cancelar</button></a>
