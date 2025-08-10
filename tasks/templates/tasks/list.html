@@ -1,25 +1,38 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}Lista de tarefas{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock %}
 
 {% block main %}
+    <section class="task-lista">
+        <h2 class="task-lista-titulo">Sua lista de tarefas</h2>
 
-    <h2>Sua lista de tarefas</h2>
-
-    {% if tasks %}
-        {% for task in tasks %}
-            <div>
-                <p><strong>{{ task.titulo }}</strong></p>
-                <p>{{ task.descricao }}</p>
-                <p> <strong>Status </strong>: {{ task.get_status_display }}</p>
-                <a href="{% url 'tasks:atualizar' task.pk %}">Atualizar</a>
-                <a href="{% url 'tasks:deletar' task.pk %}">Deletar</a>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>Não há tarefas cadastradas.</p>
-    {% endif %}
-
+        {% if tasks %}
+            {% for task in tasks %}
+                <article class="task-card">
+                    <h3 class="task-titulo">
+                        {{ task.titulo }}
+                    </h3>
+                    <p class="task-descricao">
+                        {{ task.descricao }}
+                    </p>
+                    <p class="task-status">
+                        <strong>Status:</strong> 
+                        {{ task.get_status_display }}
+                    </p>
+                    
+                    <div class="task-buttons">
+                        <a href="{% url 'tasks:atualizar' task.pk %}" class="btn btn-update">Atualizar</a>
+                        <a href="{% url 'tasks:deletar' task.pk %}" class="btn btn-delete">Deletar</a>
+                    </div>
+                </article>
+            {% endfor %}
+        {% else %}
+            <p class="no-tasks">Não há tarefas cadastradas.</p>
+        {% endif %}
+    </section>
 {% endblock %}
