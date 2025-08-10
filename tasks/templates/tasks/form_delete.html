@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}Deletar tarefa{% endblock %}
 
+{% block head %} <link rel="stylesheet" href="{% static 'css/delete.css' %}">{% endblock %}
 
 {% block main %}
     {% if task %}
-        <form method="POST" action="{% url 'tasks:deletar' task.pk %}">
+        <form method="POST" action="{% url 'tasks:deletar' task.pk %}" class="form">
             {% csrf_token %}
 
             <p>Deseja deletar a tarefa <strong>{{ task.titulo }}</strong>?</p>
-            <button type="submit">Deletar</button>
-            <a href="{% url 'tasks:listar' %}"><button type="button">Cancelar</button></a>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-delete">Deletar</button>
+                <a href="{% url 'tasks:listar' %}" class="btn-cancel">Cancelar</a>
+            </div>
         </form>
     {% else %}
-        <p>Ocorreu um erro ao acessar a tarefa.</p>
+        <p class="task-info">Ocorreu um erro ao acessar a tarefa.</p>
     {% endif %}
 
 {% endblock %}
