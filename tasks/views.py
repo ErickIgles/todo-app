@@ -1,6 +1,6 @@
 
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView
 from .forms import TaskModelForm
 
 from .models import Task
@@ -26,4 +26,18 @@ class TarefaListaView(ListView):
     template_name = 'tasks/list.html'
     queryset = Task.objects.all()
     context_object_name = 'tasks'
+
+
+class TarefaAtualizarView(UpdateView):
+    template_name = 'tasks/form_update.html'
+    model = Task
+    form_class = TaskModelForm
+    context_object_name = 'task'
+    success_url = reverse_lazy('tasks:listar')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        return super().form_invalid(form)
 
