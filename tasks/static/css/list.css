@@ -1,0 +1,75 @@
+.task-lista{
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fdfdfd;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.task-lista-titulo{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.task-card{
+    background-color: bisque;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.task-titulo{
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+.task-descricao{
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    color: #555555;
+    text-align:start;
+}
+
+.task-status{
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.task-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.btn{
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-update{
+    background-color: #007bff;
+    color: #ffffff;
+}
+.btn-update:hover{
+    background-color: #0056b3;
+}
+
+.btn-delete{
+    background-color: red;
+    color: #ffffff;
+}
+
+.btn-delete:hover{
+    background-color: rgb(216, 28, 28);
+}
