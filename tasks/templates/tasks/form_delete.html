@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Deletar tarefa{% endblock %}
+
+
+{% block main %}
+    {% if task %}
+        <form method="POST" action="{% url 'tasks:deletar' task.pk %}">
+            {% csrf_token %}
+
+            <p>Deseja deletar a tarefa <strong>{{ task.titulo }}</strong>?</p>
+            <button type="submit">Deletar</button>
+            <a href="{% url 'tasks:listar' %}"><button type="button">Cancelar</button></a>
+        </form>
+    {% else %}
+        <p>Ocorreu um erro ao acessar a tarefa.</p>
+    {% endif %}
+
+{% endblock %}
