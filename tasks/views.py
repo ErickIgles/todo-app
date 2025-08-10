@@ -22,7 +22,7 @@ class TarefaCriarView(CreateView):
         return super().form_invalid(form)
 
 
-class TarefaListaView(ListView):
+class TarefaListarView(ListView):
     template_name = 'tasks/list.html'
     queryset = Task.objects.all()
     context_object_name = 'tasks'
