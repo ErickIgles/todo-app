@@ -11,7 +11,7 @@ class TaskModelForm(ModelForm):
         model = Task
         fields = ['titulo', 'descricao', 'status']
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': ''}),
-            'descricao': forms.Textarea(attrs={'class': ''}),
-            'status': forms.Select(attrs={'class': ''})
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'descricao': forms.Textarea(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control'})
         }
