@@ -1,33 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <title>{% block title %}Home{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
 <body>
 
-    <header>
-        <nav>
+    <header class="header">
+        <nav class="header-navegacao">
             <ul>
-                <li><a href="#1">Link 1</a></li>
-                <li><a href="{% url 'tasks:cadastrar' %}">Cadastar tarefa</a></li>
-                <li><a href="{% url 'tasks:listar' %}">Lista de tarefas</a></li>
+                <li><a class="header-navegacao-link" href="#1">Link 1</a></li>
+                <li><a class="header-navegacao-link" href="{% url 'tasks:cadastrar' %}">Cadastar tarefa</a></li>
+                <li><a class="header-navegacao-link" href="{% url 'tasks:listar' %}">Lista de tarefas</a></li>
             </ul>
         </nav>
     </header>
    
 
-    <main>
+    <main class="container">
         {% block main %}
         
         
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="rodape">
         Sistema desenvolvido pelo Erick Almeida
     </footer>
 
