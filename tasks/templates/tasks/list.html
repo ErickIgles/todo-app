@@ -15,7 +15,7 @@
                 <p>{{ task.descricao }}</p>
                 <p> <strong>Status </strong>: {{ task.get_status_display }}</p>
                 <a href="{% url 'tasks:atualizar' task.pk %}">Atualizar</a>
-                <a href="#">Deletar</a>
+                <a href="{% url 'tasks:deletar' task.pk %}">Deletar</a>
             </div>
         {% endfor %}
     {% else %}
