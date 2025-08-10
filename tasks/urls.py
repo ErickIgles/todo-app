@@ -8,4 +8,5 @@ urlpatterns = [
     path('tarefa/cadastro/', views.TarefaCriarView.as_view(), name='cadastro'),
     path('tarefa/lista/', views.TarefaListaView.as_view(), name='listar'),
     path('tarefa/atualizar/<int:pk>/', views.TarefaAtualizarView.as_view(), name='atualizar'),
+    path('tarefa/deletar/<int:pk>/', views.TarefaDeletarView.as_view(), name='deletar'),
 ]
