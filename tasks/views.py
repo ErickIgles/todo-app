@@ -13,6 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import TaskModelForm
 
 from .models import Task
+from .utils.mixins import TaskPermissionMixin
 
 
 class BaseTemplateView(
@@ -54,9 +55,28 @@ class TarefaListarView(
     queryset = Task.objects.all()
     context_object_name = 'tasks'
 
+    def get_usuario(self):
+
+        usuario = self.request.user
+
+        return usuario
+
+    def get_queryset(self):
+
+        queryset = super().get_queryset()
+
+        usuario = self.get_usuario()
+
+        queryset = queryset.filter(
+            usuario=usuario
+        )
+
+        return queryset
+
 
 class TarefaAtualizarView(
     LoginRequiredMixin,
+    TaskPermissionMixin,
     UpdateView
 ):
     template_name = 'tasks/form_update.html'
@@ -74,6 +94,7 @@ class TarefaAtualizarView(
 
 class TarefaDeletarView(
     LoginRequiredMixin,
+    TaskPermissionMixin,
     DeleteView
 ):
     template_name = 'tasks/form_delete.html'
