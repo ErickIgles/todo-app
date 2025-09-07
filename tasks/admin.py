@@ -6,7 +6,24 @@ from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('id', 'titulo', 'descricao', 'status')
-    list_display_links = ('id', 'titulo')
+    list_display = [
+        'id',
+        'usuario',
+        'titulo',
+        'descricao',
+        'status',
+        'criado',
+        'atualizado',
+        'ativo'
+    ]
+
+    list_display_links = [
+        'id',
+        'titulo'
+    ]
+
     search_fields = ('titulo', )
 
+    ordering = (
+        'id',
+    )
