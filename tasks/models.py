@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Base(models.Model):
@@ -18,13 +19,19 @@ class Task(Base):
         EM_ANDAMENTO = 'em_andamento', 'Em andamento'
         CONCLUIDA = 'concluida', 'Concluída'
 
+    usuario = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name='Usuário'
+    )
+
     titulo = models.CharField(
-        verbose_name='Título', 
+        verbose_name='Título',
         max_length=100
         )
     descricao = models.TextField(
-        verbose_name='Descrição', 
-        blank=True, 
+        verbose_name='Descrição',
+        blank=True,
         null=True
         )
     status = models.CharField(
@@ -33,11 +40,10 @@ class Task(Base):
         default=Status.PENDENTE,
         max_length=20
         )
-    
+
     class Meta:
         verbose_name = 'Task'
         verbose_name_plural = 'Tasks'
-    
+
     def __str__(self):
         return f'{self.titulo}'
-
