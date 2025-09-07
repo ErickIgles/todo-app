@@ -17,14 +17,21 @@ body{
 .header{
     background-color: blueviolet;
     min-height: 100px;
-    padding: 30px 0;
+    padding: 30px;
+    width: 100%;
 }
 
 .header-navegacao{
-    padding: 20px 0;
-}
-.header-navegacao ul{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 50px;
+}
+.menu-interacao{
+    display: flex;
+    flex-direction: row;
     list-style: none;
     align-items: center;
     justify-content: center;
@@ -35,18 +42,37 @@ body{
 .header-navegacao-link{
     text-decoration: none;
     font-size: 18px;
-    color: black;
+    color: rgb(255, 207, 148);
     cursor: pointer;
     font-weight: 600;
 }
 
 .header-navegacao-link:hover{
-    color: bisque;
+    color: white;
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
+    text-decoration:underline;
 }
 
 
+.nav-autenticacao{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding: 10px;
+    gap: 30px;
+    border-radius: 8px;
+}
+
+.logout{
+    padding: 10px 12px;
+    color: white;
+    background-color: #5b24d3;
+}
 
 .container{
     flex: 1;
@@ -60,4 +86,14 @@ body{
     justify-content: center;
     background-color: wheat;
     font-weight: bolder;
+}
+
+
+@media (max-width: 760px) {
+    .header-navegacao{
+        flex-direction: column-reverse;
+    }
+    .menu-interacao{
+        flex-direction: column;
+    }
 }
