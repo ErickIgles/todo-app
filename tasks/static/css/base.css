@@ -74,10 +74,26 @@ body{
     background-color: #5b24d3;
 }
 
+
 .container{
     flex: 1;
 }
 
+.espaco-messages{
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    width: 50%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.espaco-messages p{
+    color: #ffffff;
+    font-weight: bold;
+}
 
 .rodape{
     display: flex;
