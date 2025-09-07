@@ -1,0 +1,72 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'account/css/forms.css '%}">
+</head>
+<body>
+    <div class="display">
+        <div class="form-titulo">
+            <h1>Login</h1>
+        </div>
+
+        <form class="form" method="POST" action="{% url 'account:login' %}">
+            {% csrf_token %}
+        
+            {% if form.errors %}
+                <div 
+                    class="error-list"
+                >
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div 
+                                class="error"
+                            >
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+        
+                    {% for error in form.non_field_errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        
+            {% for field in form %}
+                <div 
+                    class="form-group {% if field.errors %} has-error{% endif %}"
+                >
+                    <label 
+                        for="{{ field.id_for_label }}"
+                    >
+                        {{ field.label }}
+                    </label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+            <div class="form-actions">
+                    <button 
+                        class="btn-login"
+                        type="submit"
+                    >
+                        Logar
+                    </button>
+                    <a 
+                        class="btn"
+                        href="{% url 'account:registrar' %}"
+                    >
+                        Cadastro
+                    </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
