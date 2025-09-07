@@ -14,10 +14,45 @@
 
     <header class="header">
         <nav class="header-navegacao">
-            <ul>
-                <li><a class="header-navegacao-link" href="{% url 'tasks:home' %}">Home</a></li>
-                <li><a class="header-navegacao-link" href="{% url 'tasks:cadastrar' %}">Cadastrar tarefa</a></li>
-                <li><a class="header-navegacao-link" href="{% url 'tasks:listar' %}">Lista de tarefas</a></li>
+            <ul class="menu-interacao">
+                <li>
+                    <a 
+                        class="header-navegacao-link" 
+                        href="{% url 'tasks:home' %}"
+                    >
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        class="header-navegacao-link" 
+                        href="{% url 'tasks:cadastrar' %}"
+                    >
+                        Cadastrar tarefa
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        class="header-navegacao-link" 
+                        href="{% url 'tasks:listar' %}"
+                    >
+                        Lista de tarefas
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav-autenticacao">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a 
+                            class="header-navegacao-link logout"
+                            href="{% url 'account:logout' %}"
+                        >
+                            Logout
+                        </a>
+                    </li>
+                {% endif %}
+
             </ul>
         </nav>
     </header>
