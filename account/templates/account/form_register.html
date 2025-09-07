@@ -1,23 +1,66 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'account/css/forms.css' %}">
+    
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="display">
 
+        <div class="form-titulo">
+            <h1>Cadastre-se!</h1>
+        </div>
+        <form class="form" method="POST" action="{% url 'account:registrar' %}">
+            {% csrf_token %}
+        
+            {% for field in form %}
+                <div 
+                    class="form-group {% if field.errors %} has-error{% endif %}"
+                >
+                    <label 
+                        for="{{ field.id_for_label }}"
+                    >
+                        {{ field.label }}
+                    </label>
+                    {{ field }}
+        
+                    {% if field.errors %}
+        
+                        <div class="error-list">
+                            {% for error in field.errors %}
+                                <div 
+                                    class="error"
+                                >
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
 
-{% block title %} Registro {% endblock %}
-
-
-{% block main %}
-    <form method="POST" action="">
-        {% csrf_token %}
-        {% for field in form %}
-            <div>
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.erros %}
-                    <div class="error">{{ field.erros }}</div>
-                {% endif %}
+            <div class="form-actions">
+                <button 
+                    class="btn"
+                    type="submit"
+                >
+                    Cadastrar
+                </button>
+                <a 
+                    class="btn-login"
+                    href="{% url 'account:login' %}"
+                >
+                    Login
+                </a>
             </div>
-        {% endfor %}
-        <button type="submit">Cadastrar</button>
-        <a href="#">Cancelar</a>
-    </form>
-
-{% endblock %}
+        
+        </form>
+    </div>
+    
+</body>
+</html>
