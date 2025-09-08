@@ -84,8 +84,9 @@ Essa proteção impede acesso indevido mesmo por manipulação de URL.
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
+```
 
-
+```bash
 ### 2. Crie e ative um ambiente virtual
 
 # Para criar ambiente virtual
@@ -99,10 +100,16 @@ source venv/bin/activate
 # Windows
 venv\Scripts\activate
 
+```
+
+```bash
 ### 3. Instale as dependências
 
 pip install -r requirements.txt
 
+```
+
+```bash
 ### 4 .Configure as variáveis de ambiente
 
 SECRET_KEY=sua_chave_secreta
@@ -111,14 +118,22 @@ SECRET_KEY=sua_chave_secreta
 DB_ENGINE=django.db.backends.sqlite3
 DB_NAME=db.sqlite3
 
+```
+
+```bash
 ### 5 .Aplique as migrações
 
 python manage.py migrate
 
+```
+```bash
 ### 6 .Crie um superusuário (opcional)
 
 python manage.py createsuperuser
 
+```
+
+```bash
 ### 7 .Execute o servidor
 python manage.py runserver
 
