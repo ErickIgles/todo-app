@@ -86,8 +86,8 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 ```
 
-```bash
 ### 2. Crie e ative um ambiente virtual
+```bash
 
 # Para criar ambiente virtual
 python -m venv venv
@@ -102,15 +102,15 @@ venv\Scripts\activate
 
 ```
 
-```bash
 ### 3. Instale as dependências
+```bash
 
 pip install -r requirements.txt
 
 ```
 
-```bash
 ### 4 .Configure as variáveis de ambiente
+```bash
 
 SECRET_KEY=sua_chave_secreta
 
@@ -120,21 +120,22 @@ DB_NAME=db.sqlite3
 
 ```
 
-```bash
 ### 5 .Aplique as migrações
+```bash
 
 python manage.py migrate
 
 ```
-```bash
+
 ### 6 .Crie um superusuário (opcional)
+```bash
 
 python manage.py createsuperuser
 
 ```
 
-```bash
 ### 7 .Execute o servidor
+```bash
 python manage.py runserver
 
 Acesse o sistema em: http://127.0.0.1:8000/
