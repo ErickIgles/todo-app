@@ -9,6 +9,7 @@ from django.views.generic import (
 )
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 from .forms import TaskModelForm
 
@@ -41,9 +42,21 @@ class TarefaCriarView(
         return kwargs
 
     def form_valid(self, form):
+
+        messages.success(
+            self.request,
+            f'Tarefa {form.instance.titulo} adicionado com sucesso.'
+        )
+
         return super().form_valid(form)
 
     def form_invalid(self, form):
+
+        messages.error(
+            self.request,
+            'Erro ao adicionar uma nova tarefa. Confira os campos.'
+        )
+
         return super().form_invalid(form)
 
 
@@ -86,9 +99,21 @@ class TarefaAtualizarView(
     success_url = reverse_lazy('tasks:listar')
 
     def form_valid(self, form):
+
+        messages.success(
+            self.request,
+            'Tarefa atualizada com sucesso.'
+        )
+
         return super().form_valid(form)
 
     def form_invalid(self, form):
+
+        messages.error(
+            self.request,
+            'Erro ao tentar atualizar os dados da tarefa. Confira os campos.'
+        )
+
         return super().form_invalid(form)
 
 
