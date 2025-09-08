@@ -64,7 +64,7 @@
             <div class="espaco-messages">
     
                 {% for message in messages %}
-                    <p> 
+                    <p class="{{ message.tags }}"> 
                         {{ message }}
                     </p>
                 {% endfor %}
